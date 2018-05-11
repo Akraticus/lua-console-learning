@@ -17,7 +17,7 @@ namespace LuaConsole
             lua.DoFile("./UserDefinedLuaFunctions.txt");
 
             var luaMethods = typeof(InternalLuaFunctions).GetMethods().Where(m => m.GetCustomAttributes(typeof(LuaFunctionAttribute), true).Any()).ToList();
-            //var luaMethods = typeof(Program).Assembly.GetTypes().SelectMany(t => t.GetMethods()).Where(m => m.GetCustomAttributes(typeof(LuaMethodAttribute), true).Any()).ToList();
+            //var luaMethods = typeof(Program).Assembly.GetType s().SelectMany(t => t.GetMethods()).Where(m => m.GetCustomAttributes(typeof(LuaMethodAttribute), true).Any()).ToList();
             foreach (var luaMethod in luaMethods)
             {
                 var luaFunc = luaMethod.GetCustomAttributes(typeof(LuaFunctionAttribute), true).First() as LuaFunctionAttribute;
